@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 export default function Services() {
   const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // Changed from true
   const [error, setError] = useState("");
 
-  // Static fallback data
+  // Static fallback data - shows immediately
   const fallbackServices = [
     {
       id: 1,
@@ -49,13 +49,16 @@ export default function Services() {
   ];
 
   useEffect(() => {
+    // Show default data immediately
+    setServices(fallbackServices);
+    
+    // Optionally try to fetch from API in background
     async function fetchServices() {
       try {
         setLoading(true);
         const response = await apiRequest(API_ENDPOINTS.SERVICES);
         
         if (response.success && response.services && response.services.length > 0) {
-          // Map API data to include fallback features if not provided
           const servicesWithFeatures = response.services.map(service => {
             const fallback = fallbackServices.find(f => f.title === service.title);
             return {
@@ -65,33 +68,19 @@ export default function Services() {
             };
           });
           setServices(servicesWithFeatures);
-        } else {
-          throw new Error("No services data received");
+          setError("");
         }
-        
-        setError("");
       } catch (err) {
-        console.error("Failed to fetch services:", err);
-        setError("Failed to load services from server.");
-        setServices(fallbackServices);
+        console.warn("API not available, using default data:", err.message);
+        // Keep using fallback data
       } finally {
         setLoading(false);
       }
     }
 
-    fetchServices();
+    // Fetch in background after 1 second
+    setTimeout(fetchServices, 1000);
   }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading services...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -105,9 +94,9 @@ export default function Services() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Professional security & communication solutions tailored for your needs.
           </p>
-          {error && (
-            <div className="mt-4 p-3 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded max-w-2xl mx-auto">
-              ⚠️ {error} Showing cached data.
+          {loading && (
+            <div className="mt-4 p-2 bg-blue-100 text-blue-700 rounded max-w-sm mx-auto text-sm">
+              🔄 Checking for latest updates...
             </div>
           )}
         </motion.div>

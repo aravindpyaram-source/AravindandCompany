@@ -5,63 +5,65 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // Changed from true
   const [error, setError] = useState("");
 
+  // Immediate fallback data - show instantly
+  const defaultServices = [
+    {
+      id: 1,
+      title: "CCTV Surveillance",
+      description: "Professional CCTV installation and monitoring services for complete security coverage",
+      price: "Starting from ₹15,000",
+      category: "security"
+    },
+    {
+      id: 2,
+      title: "Networking Solutions", 
+      description: "Complete networking infrastructure setup and maintenance for homes and businesses",
+      price: "Starting from ₹8,000",
+      category: "networking"
+    },
+    {
+      id: 3,
+      title: "EPABX Systems",
+      description: "Advanced communication systems for seamless office communication",
+      price: "Starting from ₹12,000", 
+      category: "communication"
+    },
+    {
+      id: 4,
+      title: "Biometric Access Control",
+      description: "Smart biometric solutions for enhanced security and attendance management",
+      price: "Starting from ₹10,000",
+      category: "security"
+    }
+  ];
+
   useEffect(() => {
+    // Show default data immediately
+    setServices(defaultServices);
+    
+    // Try to fetch from API in background (optional)
     async function fetchServices() {
       try {
         setLoading(true);
         const response = await apiRequest(API_ENDPOINTS.SERVICES);
         
-        if (response.success && response.services) {
+        if (response.success && response.services && response.services.length > 0) {
           setServices(response.services);
-        } else {
-          throw new Error("Invalid response format");
+          setError("");
         }
-        
-        setError("");
       } catch (err) {
-        console.error("Failed to fetch services:", err);
-        setError("Failed to load services from server.");
-        
-        // Fallback services data
-        setServices([
-          {
-            id: 1,
-            title: "CCTV Surveillance",
-            description: "Professional CCTV installation and monitoring services for complete security coverage",
-            price: "Starting from ₹15,000",
-            category: "security"
-          },
-          {
-            id: 2,
-            title: "Networking Solutions",
-            description: "Complete networking infrastructure setup and maintenance for homes and businesses",
-            price: "Starting from ₹8,000",
-            category: "networking"
-          },
-          {
-            id: 3,
-            title: "EPABX Systems",
-            description: "Advanced communication systems for seamless office communication",
-            price: "Starting from ₹12,000",
-            category: "communication"
-          },
-          {
-            id: 4,
-            title: "Biometric Access Control",
-            description: "Smart biometric solutions for enhanced security and attendance management",
-            price: "Starting from ₹10,000",
-            category: "security"
-          }
-        ]);
+        console.warn("API not available, using default data:", err.message);
+        // Keep using default data - don't set error
       } finally {
         setLoading(false);
       }
     }
 
-    fetchServices();
+    // Fetch API data in background after 1 second
+    setTimeout(fetchServices, 1000);
   }, []);
 
   // WhatsApp Component
@@ -84,17 +86,6 @@ export default function Home() {
       </a>
     );
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading services...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen">
@@ -141,9 +132,9 @@ export default function Home() {
             <p className="text-gray-600 max-w-2xl mx-auto">
               Professional security and communication solutions tailored to your needs
             </p>
-            {error && (
-              <div className="mt-4 p-3 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded max-w-2xl mx-auto">
-                ⚠️ {error} Showing cached data.
+            {loading && (
+              <div className="mt-4 p-2 bg-blue-100 text-blue-700 rounded max-w-sm mx-auto text-sm">
+                🔄 Checking for latest updates...
               </div>
             )}
           </div>
