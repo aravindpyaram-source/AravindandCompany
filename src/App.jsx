@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // Pages
@@ -14,37 +14,120 @@ import ConnectionTest from "./components/ConnectionTest";
 import Footer from "./components/Footer";
 
 function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navigation */}
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-            <NavLink to="/" className="text-2xl font-bold text-blue-600">
+            <Link to="/" className="text-2xl font-bold text-blue-600">
               Aravind & Co
-            </NavLink>
+            </Link>
             
+            {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              <NavLink to="/" className={({ isActive }) => `hover:text-blue-600 transition duration-300 ${isActive ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
+              <Link
+                to="/"
+                className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium"
+              >
                 Home
-              </NavLink>
-              <NavLink to="/about" className={({ isActive }) => `hover:text-blue-600 transition duration-300 ${isActive ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
+              </Link>
+              <Link
+                to="/about"
+                className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium"
+              >
                 About
-              </NavLink>
-              <NavLink to="/services" className={({ isActive }) => `hover:text-blue-600 transition duration-300 ${isActive ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
+              </Link>
+              <Link
+                to="/services"
+                className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium"
+              >
                 Services
-              </NavLink>
-              <NavLink to="/faq" className={({ isActive }) => `hover:text-blue-600 transition duration-300 ${isActive ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
+              </Link>
+              <Link
+                to="/faq"
+                className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium"
+              >
                 FAQ
-              </NavLink>
-              <NavLink to="/contact" className={({ isActive }) => `hover:text-blue-600 transition duration-300 ${isActive ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
+              </Link>
+              <Link
+                to="/contact"
+                className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium"
+              >
                 Contact
-              </NavLink>
-              <NavLink to="/test" className={({ isActive }) => `hover:text-blue-600 transition duration-300 ${isActive ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
+              </Link>
+              <Link
+                to="/test"
+                className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium"
+              >
                 Test API
-              </NavLink>
+              </Link>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-700 hover:text-blue-600"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
           </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="md:hidden pb-4">
+              <div className="flex flex-col space-y-2">
+                <Link
+                  to="/"
+                  className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/about"
+                  className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link
+                  to="/services"
+                  className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Services
+                </Link>
+                <Link
+                  to="/faq"
+                  className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  FAQ
+                </Link>
+                <Link
+                  to="/contact"
+                  className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+                <Link
+                  to="/test"
+                  className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Test API
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -60,6 +143,7 @@ function App() {
         </Routes>
       </main>
 
+      {/* Footer */}
       <Footer />
     </div>
   );

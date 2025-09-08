@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from "react";
 import { API_ENDPOINTS, apiRequest } from "../api/config";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Services() {
   const [services, setServices] = useState([]);
@@ -15,7 +16,8 @@ export default function Services() {
       description: "We provide IP & Analog CCTV solutions with DVR/NVR setup, remote monitoring, and mobile app integration to keep your home and business safe.",
       icon: "📹",
       features: ["IP & Analog Cameras", "Remote Monitoring", "DVR/NVR Setup", "Mobile App Access"],
-      category: "security"
+      category: "security",
+      price: "Starting from ₹15,000"
     },
     {
       id: 2,
@@ -23,7 +25,8 @@ export default function Services() {
       description: "Seamless office communication with advanced EPABX systems and intercom setups designed for businesses and residential buildings.",
       icon: "☎️",
       features: ["Office Intercom Setup", "PBX System Installation", "Call Routing & Extensions", "Maintenance & Support"],
-      category: "communication"
+      category: "communication",
+      price: "Starting from ₹12,000"
     },
     {
       id: 3,
@@ -31,7 +34,8 @@ export default function Services() {
       description: "Enhance security with smart biometric access systems for attendance tracking, door security, and workforce management.",
       icon: "🛡️",
       features: ["Fingerprint & Face Recognition", "Attendance Management", "Access Control", "Integration with HR Systems"],
-      category: "security"
+      category: "security",
+      price: "Starting from ₹10,000"
     },
     {
       id: 4,
@@ -39,7 +43,8 @@ export default function Services() {
       description: "Complete LAN & WAN setup with structured cabling, Wi-Fi networks, fiber optics, and server installations.",
       icon: "🌐",
       features: ["LAN/WAN Setup", "Fiber Cabling", "Server Room Setup", "Network Security"],
-      category: "networking"
+      category: "networking",
+      price: "Starting from ₹8,000"
     }
   ];
 
@@ -146,18 +151,18 @@ export default function Services() {
               </div>
 
               {service.category && (
-                <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">
+                <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full mb-4">
                   {service.category}
                 </span>
               )}
 
               <div className="mt-6">
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
                 >
                   Get Quote
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -168,12 +173,12 @@ export default function Services() {
           <p className="text-lg mb-6">
             Need a tailored solution? We design custom security and networking systems based on your specific requirements.
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300"
           >
             Discuss Your Requirements
-          </a>
+          </Link>
         </div>
       </div>
     </div>
