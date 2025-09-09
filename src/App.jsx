@@ -8,9 +8,12 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Services from "./pages/Services";
+import Blog from "./pages/Blog";
 
 // Components
 import ConnectionTest from "./components/ConnectionTest";
+import ServiceComparison from "./components/ServiceComparison";
+import AppointmentBooking from "./components/AppointmentBooking";
 import Footer from "./components/Footer";
 
 function App() {
@@ -47,6 +50,12 @@ function App() {
                 Services
               </Link>
               <Link
+                to="/blog"
+                className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium"
+              >
+                Blog
+              </Link>
+              <Link
                 to="/faq"
                 className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium"
               >
@@ -59,8 +68,14 @@ function App() {
                 Contact
               </Link>
               <Link
+                to="/book-appointment"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-medium"
+              >
+                Book Now
+              </Link>
+              <Link
                 to="/test"
-                className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium"
+                className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium text-sm"
               >
                 Test API
               </Link>
@@ -105,6 +120,13 @@ function App() {
                   Services
                 </Link>
                 <Link
+                  to="/blog"
+                  className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Blog
+                </Link>
+                <Link
                   to="/faq"
                   className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2"
                   onClick={() => setMobileMenuOpen(false)}
@@ -119,8 +141,15 @@ function App() {
                   Contact
                 </Link>
                 <Link
+                  to="/book-appointment"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-medium text-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Book Appointment
+                </Link>
+                <Link
                   to="/test"
-                  className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2"
+                  className="hover:text-blue-600 transition duration-300 text-gray-700 font-medium py-2 text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Test API
@@ -137,8 +166,34 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/book-appointment" element={
+            <div className="min-h-screen bg-gray-50 py-12">
+              <div className="max-w-4xl mx-auto px-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center mb-8"
+                >
+                  <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                    Book Your Appointment
+                  </h1>
+                  <p className="text-xl text-gray-600">
+                    Schedule a consultation with our security experts
+                  </p>
+                </motion.div>
+                <AppointmentBooking />
+              </div>
+            </div>
+          } />
+          <Route path="/compare" element={
+            <div className="min-h-screen bg-gray-50 py-12">
+              <ServiceComparison />
+            </div>
+          } />
           <Route path="/test" element={<ConnectionTest />} />
         </Routes>
       </main>
@@ -148,5 +203,29 @@ function App() {
     </div>
   );
 }
+
+// Simple BlogPost component for individual blog posts
+const BlogPost = () => {
+  return (
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            Blog Post Coming Soon
+          </h1>
+          <p className="text-gray-600 mb-6">
+            Individual blog post content will be available soon. For now, you can browse our blog listing.
+          </p>
+          <Link
+            to="/blog"
+            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+          >
+            Back to Blog
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default App;
