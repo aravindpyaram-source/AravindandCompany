@@ -25,8 +25,9 @@ function App() {
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-            <Link to="/" className="text-2xl font-bold text-blue-600">
-              Aravind & Co
+            <Link to="/" className="text-2xl font-bold">
+            <span className="text-blue-600">Aravind & </span>
+            <span className="text-yellow-500">Co</span>
             </Link>
             
             {/* Desktop Navigation */}
