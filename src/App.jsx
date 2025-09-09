@@ -27,7 +27,7 @@ function App() {
           <div className="flex justify-between items-center py-4">
             {/* Logo without shield */}
             <Link to="/" className="text-2xl font-bold flex items-center space-x-2">
-              <span className="text-blue-600">Aravind &nbsp;</span>
+              <span className="text-blue-600">Aravind&nbsp;&amp;&nbsp;</span>
               <span className="text-yellow-500">Co</span>
             </Link>
 
