@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 export default function Services() {
   const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(false); // Changed from true
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Static fallback data - shows immediately
+  // Static fallback data - shows immediately with updated icons
   const fallbackServices = [
     {
       id: 1,
@@ -32,7 +32,7 @@ export default function Services() {
       id: 3,
       title: "Biometric Solutions",
       description: "Enhance security with smart biometric access systems for attendance tracking, door security, and workforce management.",
-      icon: "🛡️",
+      icon: "👆",
       features: ["Fingerprint & Face Recognition", "Attendance Management", "Access Control", "Integration with HR Systems"],
       category: "security",
       price: "Starting from ₹10,000"
@@ -41,7 +41,7 @@ export default function Services() {
       id: 4,
       title: "Networking Infrastructure",
       description: "Complete LAN & WAN setup with structured cabling, Wi-Fi networks, fiber optics, and server installations.",
-      icon: "🌐",
+      icon: "🔌",
       features: ["LAN/WAN Setup", "Fiber Cabling", "Server Room Setup", "Network Security"],
       category: "networking",
       price: "Starting from ₹8,000"

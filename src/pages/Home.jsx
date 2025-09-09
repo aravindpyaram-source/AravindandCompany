@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(false); // Changed from true
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   // Immediate fallback data - show instantly
@@ -19,7 +19,7 @@ export default function Home() {
     },
     {
       id: 2,
-      title: "Networking Solutions", 
+      title: "Networking Solutions",
       description: "Complete networking infrastructure setup and maintenance for homes and businesses",
       price: "Starting from ₹8,000",
       category: "networking"
@@ -28,7 +28,7 @@ export default function Home() {
       id: 3,
       title: "EPABX Systems",
       description: "Advanced communication systems for seamless office communication",
-      price: "Starting from ₹12,000", 
+      price: "Starting from ₹12,000",
       category: "communication"
     },
     {
@@ -149,10 +149,12 @@ export default function Home() {
                 className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300"
               >
                 <div className="text-4xl mb-4">
-                  {service.category === 'security' && '🛡️'}
+                  {service.title === 'CCTV Surveillance' && '📹'}
+                  {service.title === 'Biometric Access Control' && '👆'}
                   {service.category === 'networking' && '🌐'}
                   {service.category === 'communication' && '☎️'}
-                  {!['security', 'networking', 'communication'].includes(service.category) && '⚙️'}
+                  {!['CCTV Surveillance', 'Biometric Access Control'].includes(service.title) && 
+                   !['networking', 'communication'].includes(service.category) && '⚙️'}
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">
                   {service.title}
