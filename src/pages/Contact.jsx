@@ -210,9 +210,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+91 99999 99999</p>
+                    <p className="text-gray-600">+91 70320 76263</p>
                     <a 
-                      href="tel:+919999999999" 
+                      href="tel:+91 7032076263" 
                       className="text-blue-600 hover:text-blue-700 text-sm"
                     >
                       Click to call

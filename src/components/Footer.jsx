@@ -15,7 +15,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/917032076263"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-green-500 transition duration-300"
@@ -53,11 +53,11 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Contact Info</h4>
             <div className="space-y-2 text-gray-400">
               <p>Hyderabad, Telangana</p>
-              <p>Phone: +91 99999 99999</p>
-              <p>Email: info@aravindandco.com</p>
+              <p>Phone: +91 70320 76263</p>
+              <p>Email: aravindandco@gmail.com</p>
               <div className="mt-4">
                 <a
-                  href="https://wa.me/919999999999?text=Hi, I need information about your services"
+                  href="https://wa.me/91703076263?text=Hi, I need information about your services"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded text-sm transition duration-300"

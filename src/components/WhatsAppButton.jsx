@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function WhatsAppButton({phone = '919999999999'}){
+export default function WhatsAppButton({phone = '917032076263'}){
   const href = `https://wa.me/${phone.replace(/\D/g,'')}`
   return (
     <a href={href} target="_blank" rel="noreferrer" className="fixed right-4 bottom-6 shadow-lg p-3 rounded-full bg-green-500 text-white">
