@@ -1,18 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Navbar(){
+export default function Navbar() {
   return (
-    <header className="fixed w-full bg-white shadow z-20">
-      <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
-        <Link to="/" className="text-xl font-semibold">Aravind & Co</Link>
-        <nav className="space-x-4">
-          <Link to="/" className="hover:text-blue-600">Home</Link>
-          <Link to="/contact" className="hover:text-blue-600">Contact</Link>
-          <a href="/services" className="hover:text-blue-400">Services</a>
-          <a href="/about" className="hover:text-blue-400">About</a>
-        </nav>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <Link to="/">Aravind & Co</Link>
       </div>
-    </header>
-  )
+      <div className="navbar-contact">
+        <a href="tel:+917032076263">+91 7032076263</a> | <a href="mailto:aravindandco@gmail.com">aravindandco@gmail.com</a>
+      </div>
+      <div className="navbar-links">
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/services">Services</Link>
+        <Link to="/contact">Contact</Link>
+      </div>
+    </nav>
+  );
 }
