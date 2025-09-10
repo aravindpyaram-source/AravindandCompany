@@ -15,8 +15,12 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
     setStatus({ type: "", message: "" });
+
     try {
-      const response = await apiRequest(API_ENDPOINTS.CONTACT, { method: 'POST', body: JSON.stringify(form) });
+      const response = await apiRequest(API_ENDPOINTS.CONTACT, {
+        method: 'POST',
+        body: JSON.stringify(form),
+      });
       if (response.success) {
         setStatus({ type: "success", message: "Message sent successfully! We'll get back to you soon." });
         setForm({ name: "", email: "", subject: "", message: "" });
@@ -32,16 +36,16 @@ export default function Contact() {
   };
 
   const WhatsAppButton = () => {
-    const phoneNumber = "+91 7032076263";
+    const phoneNumber = "91 703207263";
     const message = "Hi, I'm interested in your services and would like to get a quote!";
     const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
     return (
-      <a 
-        href={whatsappUrl} 
-        target="_blank" 
+      <a
+        href={whatsappUrl}
+        target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-button"
-        aria-label="WhatsApp Us"
+        aria-label="WhatsApp"
       >
         WhatsApp Us
       </a>
@@ -50,12 +54,12 @@ export default function Contact() {
 
   return (
     <motion.div className="contact-page">
-      <h1>Get in touch with us for professional security and networking solutions</h1>
+      <h1>Get in touch</h1>
 
       <div className="contact-info">
-        <p>Email: <a href="mailto:aravindandco@gmail.com">aravindandco@gmail.com</a></p>
-        <p>Phone: <a href="tel:+917032076263">+91 7032076263</a></p>
-        <p>Hyderabad, Telangana, India - 500079</p>
+        <p>Email: <a href="mailto:aravindco@gmail.com">aravindco@gmail.com</a></p>
+        <p>Phone: <a href="tel:+9170320763">+91 703207263</a></p>
+        <p>Hyderabad, Telangana, India</p>
       </div>
 
       <form onSubmit={handleSubmit}>
@@ -66,12 +70,10 @@ export default function Contact() {
         <button type="submit" disabled={loading}>{loading ? "Sending..." : "Send Message"}</button>
       </form>
 
-      <div className="status-message">
-        {status.message && <p className={status.type === "error" ? "error" : "success"}>{status.message}</p>}
-      </div>
+      {status.message && <div className={`status ${status.type}`}>{status.message}</div>}
 
       <div className="urgent-contact">
-        <p>For urgent inquiries or immediate quotes, contact us via WhatsApp for faster response.</p>
+        <p>For urgent inquiries, contact us via WhatsApp for faster response.</p>
         <WhatsAppButton />
       </div>
     </motion.div>

@@ -7,14 +7,14 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="contact-info">
-        <p>Email: <a href="mailto:aravindandco@gmail.com">aravindandco@gmail.com</a></p>
-        <p>Phone: <a href="tel:+917032076263">+91 7032076263</a></p>
-        <p>Hyderabad, Telangana, India - 500079</p>
+        <p>Email: <a href="mailto:aravindco@gmail.com">aravindco@gmail.com</a></p>
+        <p>Phone: <a href="tel:+9170320763">+91 703207263</a></p>
+        <p>Hyderabad, Telangana, India</p>
       </div>
       <div className="copyright">
         &copy; {currentYear} Aravind & Co. All rights reserved.
       </div>
-      <nav className="footer-nav">
+      <nav>
         <Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/services">Services</Link> | <Link to="/contact">Contact</Link>
       </nav>
     </footer>
