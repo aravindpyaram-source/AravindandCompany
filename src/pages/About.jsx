@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -56,7 +56,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">About Aravind & Co</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">About Aravind & Company</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Your trusted partner in security, networking, and communication solutions since 2010
           </p>
@@ -72,7 +72,7 @@ export default function About() {
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
             <p className="text-gray-600 mb-4">
-              At Aravind & Co, we are committed to providing top-notch security, communication, and networking solutions. With over a decade of experience, we help businesses and homes stay secure and connected.
+              At Aravind & Company, we are committed to providing top-notch security, communication, and networking solutions. With over a decade of experience, we help businesses and homes stay secure and connected.
             </p>
             <p className="text-gray-600 mb-6">
               Started in 2010 with a vision to make advanced security technology accessible to everyone, we have grown to become Hyderabad's trusted name in security and networking solutions.

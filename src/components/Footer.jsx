@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Aravind & Co</h3>
+            <h3 className="text-xl font-bold mb-4">Aravind & Company</h3>
             <p className="text-gray-400 mb-4">
               Your trusted partner for security, networking, and communication solutions.
             </p>
@@ -54,7 +54,7 @@ export default function Footer() {
             <div className="space-y-2 text-gray-400">
               <p>Hyderabad, Telangana</p>
               <p>Phone: +91 70320 76263</p>
-              <p>Email: aravindandco@gmail.com</p>
+              <p>Email: info.aravindandco@gmail.com</p>
               <div className="mt-4">
                 <a
                   href="https://wa.me/91703076263?text=Hi, I need information about your services"
@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {currentYear} Aravind & Co. All rights reserved.</p>
+          <p>&copy; {currentYear} Aravind & Company. All rights reserved.</p>
         </div>
       </div>
     </footer>

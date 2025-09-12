@@ -69,7 +69,7 @@ export default function Home() {
   // WhatsApp Component
   const WhatsAppButton = () => {
     const phoneNumber = "917032076263"; // Replace with your actual number
-    const message = "Hi, I'm interested in your services from Aravind & Co!";
+    const message = "Hi, I'm interested in your services from Aravind & Company!";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     
     return (
@@ -100,7 +100,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl font-bold mb-6">
-              Aravind & Co
+              Aravind & Company
             </h1>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
               Your trusted partner for security, networking, and communication solutions. 

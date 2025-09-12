@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
-const basename = import.meta.env.DEV ? "/" : "/Aravindandco";
+const basename = import.meta.env.DEV ? "/" : "/AravindandCompany";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
