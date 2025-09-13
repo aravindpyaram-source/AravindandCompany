@@ -2,7 +2,7 @@
   "name": "aravind-frontend",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://aravindpyaram-source.github.io/Aravindandco",
+  "homepage": "https://aravindpyaram-source.github.io/AravindandCompany/",
   "type": "module",
   "scripts": {
     "dev": "vite",
