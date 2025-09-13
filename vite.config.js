@@ -1,17 +1,7 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-export default defineConfig(({ command }) => {
-  const config = {
-    plugins: [react()],
-    build: {
-      outDir: "dist",
-    },
-  };
-
-  if (command !== 'serve') {
-    config.base = '/Aravindandco/';
-  }
-
-  return config;
+export default defineConfig({
+  plugins: [react()],
+  base: '/AravindandCompany/'  // Match your GitHub repo name exactly (case-sensitive)
 });
