@@ -1,14 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aravind & Co</title>
-    <script type="module" crossorigin src="/AravindandCompany/assets/index-D1sFPFA8.js"></script>
-    <link rel="stylesheet" crossorigin href="/AravindandCompany/assets/index-D8JaXr7z.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aravind & Co - Professional CCTV & Networking Solutions</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional CCTV installation, networking solutions, EPABX systems, and biometric access control in Hyderabad. Expert security and communication services.">
+    <meta name="keywords" content="CCTV installation, networking, EPABX, biometric systems, security cameras, Hyderabad">
+    <meta name="author" content="Aravind & Company">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Aravind & Company - Professional CCTV & Networking Solutions">
+    <meta property="og:description" content="Expert CCTV installation, networking solutions, and security systems in Hyderabad">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aravindpyaram-source.github.io/AravindandCompany">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Preconnect to External Domains -->
+    <link rel="preconnect" href="https://aravind-backend.onrender.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Aravind & company",
+      "description": "Professional CCTV installation, networking solutions, EPABX systems, and security services",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-7032076263",
+      "url": "https://aravindpyaram-source.github.io/AravindandCompany",
+      "sameAs": [
+        "https://www.linkedin.com/company/aravind-co",
+        "https://www.facebook.com/aravindco"
+      ],
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 17.3850,
+          "longitude": 78.4867
+        },
+        "geoRadius": 50000
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Security and Networking Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "CCTV Installation",
+              "description": "Professional CCTV camera installation and monitoring systems"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Networking Solutions",
+              "description": "Complete network infrastructure setup and management"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "EPABX Systems",
+              "description": "Digital telephone exchange systems for businesses"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Biometric Access Control",
+              "description": "Fingerprint and facial recognition security systems"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Critical CSS Inlined -->
+    <style>
+        /* Critical CSS for faster loading */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #1a202c;
+            overflow-x: hidden;
+        }
+
+        /* Loading spinner */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Root element */
+        #root {
+            min-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+
+        #root.loaded {
+            opacity: 1;
+        }
+
+        /* Prevent flash of unstyled content */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+  <script type="module" crossorigin src="/AravindandCompany/assets/index-D1sFPFA8.js"></script>
+  <link rel="stylesheet" crossorigin href="/AravindandCompany/assets/index-D8JaXr7z.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div>
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading Aravind & Co...</div>
+        </div>
+    </div>
+
+    <!-- React App Root -->
+    <div id="root"></div>
+
+    <!-- Loading Script -->
+    <script>
+        // Hide loading screen when React app loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loading = document.getElementById('loading');
+                const root = document.getElementById('root');
+
+                if (loading && root) {
+                    loading.style.opacity = '0';
+                    root.classList.add('loaded');
+
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                    }, 500);
+                }
+            }, 1000); // Show loading for at least 1 second
+        });
+    </script>
+
+    <!-- Vite Script -->
+
+    <!-- Analytics (Add your tracking codes here) -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+</body>
 </html>
